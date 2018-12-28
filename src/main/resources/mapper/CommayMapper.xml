@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.multidatasource.mapper.CompanyMapper">
+    <!-- site_score table all fields -->
+    <resultMap id="company" type="com.example.multidatasource.model.Company">
+        <id property="coId" column="co_id" />
+        <result property="coName" column="co_name" />
+        <result property="coNick" column="co_nick" />
+        <result property="coNum" column="co_num" />
+        <result property="coAGE" column="co_age" />
+        <result property="coAddress" column="co_address" />
+        <result property="coIntro" column="co_intro" />
+    </resultMap>
+
+    <select id="findCompanyById" resultMap="company">
+		select * from company_info where co_id = #{coId}
+	</select>
+</mapper>
